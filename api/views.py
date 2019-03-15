@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 
 from .serializers import CarSerializer
 from cars.models import Car
@@ -8,6 +9,7 @@ from cars.models import Car
 class ListCar(generics.ListAPIView):
     """This class defines the list behavior of our rest api."""
     serializer_class = CarSerializer
+    
 
     def get_queryset(self):
         """
@@ -24,11 +26,13 @@ class ListCar(generics.ListAPIView):
 
 class CreateCar(generics.CreateAPIView):
     """This class defines the create behavior of our rest api."""
+    permission_classes = (IsAuthenticated,) 
     queryset = Car.objects.all()
     serializer_class = CarSerializer
 
 
 class RetrieveUpdateDestroyCar(generics.RetrieveUpdateDestroyAPIView):
     """This class defines the http retrieve, update and delete requests of our rest api."""
+    permission_classes = (IsAuthenticated,) 
     queryset = Car.objects.all()
     serializer_class = CarSerializer
