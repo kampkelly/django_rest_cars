@@ -1,4 +1,5 @@
 from django.db import models
+from cars_site.company.models import Company
 
 class Car(models.Model):
     name = models.CharField(max_length=250,unique=True,null=False)
@@ -12,6 +13,7 @@ class Car(models.Model):
     deleted = models.BooleanField(null=True,default=False)
     status = models.CharField(max_length=250,null=False,default='new')
     price = models.FloatField(null=False,default=0.00)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
 
     def __str__(self):
         """A string representation of the model."""
