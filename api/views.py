@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from django_filters import rest_framework as filters
 
 from .serializers import CarSerializer
-from cars.models import Car
+from cars_site.cars.models import Car
 
 class CarFilter(filters.FilterSet):
     name = filters.CharFilter(lookup_expr='iexact')

@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'cars',
+    'cars_site.cars',
+    'cars_site.company',
     'django_filters',
 ]
 
