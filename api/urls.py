@@ -3,7 +3,8 @@ from django.conf.urls import url, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework_simplejwt import views as jwt_views
 
-from .views import CreateCar, RetrieveUpdateDestroyCar, ListCar, ListCreateCompany, RetrieveUpdateDestroyCompany
+from cars_site.cars.views import CreateCar, RetrieveUpdateDestroyCar, ListCar
+from cars_site.company.views import ListCreateCompany, RetrieveUpdateDestroyCompany
 
 app_name = 'cars'
 
